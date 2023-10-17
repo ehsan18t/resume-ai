@@ -1,5 +1,8 @@
-# Resume AI
-A tool for CV summarization and prompt to get info from CV
+<div align="center">
+  <h1>Resume AI</h1>
+  <strong>A tool for CV summarization and prompt to get info from CV using NLP</strong>
+</div>
+<br>
 
 # Pre-Trained Model
  - [BART-large Model](https://huggingface.co/facebook/bart-large)
