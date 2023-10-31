@@ -85,7 +85,10 @@ export default function Home() {
             <h4 className="inline-block px-2 mb-4 font-medium leading-none border-b-2 pb-3">
               Extracted Texts
             </h4>
-            <div className="text-sm">{extractedText}</div>
+            <div
+              className="text-sm"
+              dangerouslySetInnerHTML={{ __html: extractedText }}
+            />
           </div>
         </ScrollArea>
         <button
