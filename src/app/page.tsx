@@ -77,25 +77,27 @@ export default function Home() {
         </ScrollArea>
       </div>
 
-      <div className="w-full flex gap-3 justify-center items-center mb-32 text-center lg:mb-0 lg:text-left">
-        <input
-          type="file"
-          id="fileInput"
-          onChange={handleFileChange}
-          style={{ display: "none" }}
-        />
-        <ImAttachment
-          onClick={handleFileSelect}
-          className="h-6 w-6 text-gray-500 cursor-pointer hover:text-gray-600 transition duration-300"
-        />
-        <input
-          type="text"
-          placeholder="Write Something..."
-          className="w-full h-12 px-4 py-2 text-sm border rounded-md lg:px-6 lg:py-3 focus:outline-none focus:border-gray-400 transition duration-300"
-        />
-        <Button onClick={handleSubmit} className="h-12">
-          Send
-        </Button>
+      <div className="w-full mb-32 text-center lg:mb-0 lg:text-left">
+        <div className="flex gap-3 justify-center items-center">
+          <input
+            type="file"
+            id="fileInput"
+            onChange={handleFileChange}
+            style={{ display: "none" }}
+          />
+          <ImAttachment
+            onClick={handleFileSelect}
+            className="h-6 w-6 text-gray-500 cursor-pointer hover:text-gray-600 transition duration-300"
+          />
+          <input
+            type="text"
+            placeholder="Write Something..."
+            className="w-full h-12 px-4 py-2 text-sm border rounded-md lg:px-6 lg:py-3 focus:outline-none focus:border-gray-400 transition duration-300"
+          />
+          <Button onClick={handleSubmit} className="h-12">
+            Send
+          </Button>
+        </div>
       </div>
     </main>
   );
