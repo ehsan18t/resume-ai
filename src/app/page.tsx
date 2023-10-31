@@ -21,6 +21,11 @@ export default function Home() {
     document.getElementById("fileInput")?.click();
   };
 
+  const clearFileInput = () => {
+    setSelectedFile(null);
+    setSelectedFileName("");
+  };
+
   const handleSubmit = async () => {
     if (!selectedFile) {
       // Handle case where no file is selected
@@ -41,6 +46,7 @@ export default function Home() {
 
       const data = await response.json();
       setExtractedText(data.extracted_text);
+      clearFileInput();
       // console.log(data.extracted_text); // Log the response data
     } catch (error) {
       console.error("Error:", error);
