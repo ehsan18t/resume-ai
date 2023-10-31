@@ -53,6 +53,19 @@ export default function Home() {
     }
   };
 
+  const copyToClipboard = () => {
+    navigator.clipboard
+      .writeText(extractedText)
+      .then(() => {
+        // Do something on successful copy (e.g., show a success message)
+        console.log("Text copied to clipboard:", extractedText);
+      })
+      .catch((err) => {
+        // Handle errors in clipboard copying
+        console.error("Error copying text to clipboard:", err);
+      });
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -75,6 +88,12 @@ export default function Home() {
             <div className="text-sm">{extractedText}</div>
           </div>
         </ScrollArea>
+        <button
+          onClick={copyToClipboard}
+          className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
+        >
+          Copy to Clipboard
+        </button>
       </div>
 
       <div className="w-full mb-32 text-center lg:mb-0 lg:text-left">
