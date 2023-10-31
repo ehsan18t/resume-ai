@@ -8,10 +8,13 @@ import { ImAttachment } from "react-icons/im";
 
 export default function Home() {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFileName, setSelectedFileName] = useState("");
   const [extractedText, setExtractedText] = useState("");
 
   const handleFileChange = (event: any) => {
-    setSelectedFile(event.target.files[0]);
+    const file = event.target.files[0];
+    setSelectedFile(file);
+    setSelectedFileName(file ? file.name : ""); // Set the selected file name
   };
 
   const handleFileSelect = () => {
