@@ -91,12 +91,14 @@ export default function Home() {
             />
           </div>
         </ScrollArea>
-        <button
-          onClick={copyToClipboard}
-          className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
-        >
-          Copy to Clipboard
-        </button>
+        {extractedText && (
+          <button
+            onClick={copyToClipboard}
+            className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
+          >
+            Copy to Clipboard
+          </button>
+        )}
       </div>
 
       <div className="w-full mb-32 text-center lg:mb-0 lg:text-left">
