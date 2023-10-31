@@ -116,7 +116,11 @@ export default function Home() {
             placeholder="Write Something..."
             className="w-full h-12 px-4 py-2 text-sm border rounded-md lg:px-6 lg:py-3 focus:outline-none focus:border-gray-400 transition duration-300"
           />
-          <Button onClick={handleSubmit} className="h-12">
+          <Button
+            disabled={selectedFile == null}
+            onClick={handleSubmit}
+            className="h-12"
+          >
             Send
           </Button>
         </div>
