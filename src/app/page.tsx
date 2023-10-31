@@ -98,6 +98,19 @@ export default function Home() {
             Send
           </Button>
         </div>
+        <div className="pl-10 pt-5 w-full transition duration-300">
+          {selectedFileName && (
+            <p className="w-full flex justify-between p-2 border-[1px] border-gray-200 rounded text-gray-600">
+              {selectedFileName}
+              <button
+                className="px-3 text-xl hover:text-red-600 transition duration-300"
+                onClick={() => clearFileInput()}
+              >
+                x
+              </button>
+            </p>
+          )}
+        </div>
       </div>
     </main>
   );
