@@ -28,11 +28,9 @@ export default function Home() {
               Extracted Texts
             </h4>
             {tags.map((tag) => (
-              <>
-                <div key={tag} className="text-sm">
-                  {tag}
-                </div>
-              </>
+              <div key={tag} className="text-sm">
+                {tag}
+              </div>
             ))}
           </div>
         </ScrollArea>
