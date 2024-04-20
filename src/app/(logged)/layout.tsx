@@ -17,17 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Provider>
-          <Setup />
-          <Navbar />
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
-            <RequireAuth>{children}</RequireAuth>
-          </div>
-          <Footer />
-        </Provider>
-      </body>
-    </html>
+    <Provider>
+      <Setup />
+      <Navbar />
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
+        <RequireAuth>{children}</RequireAuth>
+      </div>
+      <Footer />
+    </Provider>
   );
 }
