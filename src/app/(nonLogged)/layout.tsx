@@ -6,8 +6,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Full Auth",
-  description: "Full Auth application that provides jwt authentication",
+  title: "Resume AI",
+  description: "Resume AI application that provides jwt authentication",
 };
 
 export default function RootLayout({

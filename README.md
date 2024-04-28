@@ -1,4 +1,4 @@
-# Full Auth
+# Resume AI
 
 To run the development server:
 

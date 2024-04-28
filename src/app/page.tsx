@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Full Auth | Home",
-  description: "Full Auth home page",
+  title: "Resume AI | Home",
+  description: "Resume AI home page",
 };
 
 export default function Page() {
@@ -13,7 +13,7 @@ export default function Page() {
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Full Auth Tutorial Application
+              Resume AI Tutorial Application
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               This is an application meant to showcase jwt authentication with
