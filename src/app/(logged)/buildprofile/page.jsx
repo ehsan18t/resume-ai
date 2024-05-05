@@ -65,12 +65,6 @@ export default function FileUpload() {
           {error}
         </Alert>
       )}
-      {response && (
-        <div className="mt-4">
-          <h2 className="text-lg font-semibold mb-2">Response from Server:</h2>
-          <pre>{JSON.stringify(response, null, 2)}</pre>
-        </div>
-      )}
       {loading && (
         <div className="mt-4">
           <Progress percent={50} className="w-full" />
