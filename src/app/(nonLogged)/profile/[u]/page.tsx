@@ -57,16 +57,22 @@ const ProfilePage = ({ params }) => {
             socialMedia={social_media}
             website={website}
           />
-          <Languages languages={languages} className="mt-8" />
+          {languages && languages.length > 0 && (
+            <Languages languages={languages} className="mt-8" />
+          )}
 
-          <h2 className="text-2xl font-bold mb-2">Interests</h2>
-          <ul className="list-disc list-inside mb-3">
-            {interests?.map((interest, index) => (
-              <li key={index} className="mb-2">
-                {interest.name}
-              </li>
-            ))}
-          </ul>
+          {interests && interests.length > 0 && (
+            <>
+              <h2 className="text-2xl font-bold mb-2">Interests</h2>
+              <ul className="list-disc list-inside mb-3">
+                {interests?.map((interest, index) => (
+                  <li key={index} className="mb-2">
+                    {interest.name}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
 
         <ScrollArea

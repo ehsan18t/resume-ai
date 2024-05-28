@@ -13,6 +13,10 @@ const generateSocialIcon = (socialLinks) => {
   const socials = [];
   const iconClass = "text-4xl text-gray-700";
 
+  if (!socialLinks) {
+    return socials;
+  }
+
   const linkedIn = socialLinks.find((link) => link.includes("linkedin"));
   if (linkedIn) {
     socials.push({
@@ -65,6 +69,17 @@ const generateSocialIcon = (socialLinks) => {
   return socials;
 };
 
+const Social = ({ Icon, children }) => {
+  return (
+    <p className="text-justify flex gap-1">
+      <span>
+        <Icon size={25} />
+      </span>
+      {children}
+    </p>
+  );
+};
+
 const Contact = ({
   location,
   phoneNumbers,
@@ -77,44 +92,40 @@ const Contact = ({
   return (
     <div className={cn("mb-8 flex flex-col gap-1", className)}>
       <h2 className="text-2xl font-bold">Contact</h2>
-      <p className="text-justify flex gap-1">
-        <span>
-          <CiLocationOn size={25} />
-        </span>
-        {location}
-      </p>
-      <p className="text-justify flex gap-1">
-        <span>
-          <CiGlobe size={25} />
-        </span>
-        <a href={`https://${website}`} className="text-blue-500">
-          {website}
-        </a>
-      </p>
-
-      <p className="text-justify flex gap-1">
-        <span>
-          <CiPhone size={25} />
-        </span>
-        {phoneNumbers.map((number, index) => (
-          <a
-            key={`phone_${index}`}
-            href={`tel:${number}`}
-            className="text-blue-500"
-          >
-            {number}
+      {location && <Social Icon={CiLocationOn}>{location}</Social>}
+      {website && (
+        <Social Icon={CiGlobe}>
+          <a href={`https://${website}`} className="text-blue-500">
+            {website}
           </a>
-        ))}
-      </p>
-      <ul className="flex gap-1 pt-2">
-        {socials.map((social, index) => (
-          <li key={`social_${index}`}>
-            <a href={social.link} className="text-blue-500">
-              {social.icon}
+        </Social>
+      )}
+
+      {phoneNumbers && phoneNumbers.length > 0 && (
+        <Social Icon={CiPhone}>
+          {phoneNumbers.map((number, index) => (
+            <a
+              key={`phone_${index}`}
+              href={`tel:${number}`}
+              className="text-blue-500"
+            >
+              {number}
             </a>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </Social>
+      )}
+
+      {socials && socials.length > 0 && (
+        <ul className="flex gap-1 pt-2">
+          {socials.map((social, index) => (
+            <li key={`social_${index}`}>
+              <a href={social.link} className="text-blue-500">
+                {social.icon}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
