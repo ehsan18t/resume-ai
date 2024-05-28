@@ -1,5 +1,5 @@
 import Navbar from "@/components/common/nav/LoggedNavbar";
-import { RequireAuth } from "@/components/utils";
+import { RequireAuth, Setup } from "@/components/utils";
 import Provider from "@/redux/provider";
 import type { Metadata } from "next";
 
@@ -15,6 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <Provider>
+      <Setup />
       <Navbar />
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
         <RequireAuth>{children}</RequireAuth>
