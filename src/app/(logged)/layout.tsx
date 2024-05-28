@@ -1,6 +1,6 @@
 import { Footer } from "@/components/common";
-import Navbar from "@/components/common/nav/Navbar";
-import { RequireAuth, Setup } from "@/components/utils";
+import Navbar from "@/components/common/nav/LoggedNavbar";
+import { RequireAuth } from "@/components/utils";
 import Provider from "@/redux/provider";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
@@ -19,7 +19,6 @@ export default function RootLayout({
 }) {
   return (
     <Provider>
-      <Setup />
       <Navbar />
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
         <RequireAuth>{children}</RequireAuth>
