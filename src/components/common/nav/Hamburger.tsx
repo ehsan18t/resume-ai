@@ -1,10 +1,10 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-export default function Hamburger({ user, ref, onClick }) {
+export default function Hamburger({ user, buttonRef, onClick }) {
   return (
     <div className="flex gap-3 items-center">
       <button
-        ref={ref}
+        ref={buttonRef}
         onClick={() => onClick()}
         className="text-gray-800 block"
         aria-label="Toggle sidebar"
