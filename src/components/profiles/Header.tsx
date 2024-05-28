@@ -1,8 +1,10 @@
+import { cn } from "@/lib/utils";
+
 import Image from "@/components/common/Image";
 
-const Header = ({ profile_picture, name, title = null, bio }) => {
+const Header = ({ profile_picture, name, title = null, bio, className }) => {
   return (
-    <div className="w-full flex gap-5 items-center">
+    <div className={cn("w-full flex gap-5 items-center", className)}>
       <Image
         src={profile_picture}
         alt={name}
