@@ -314,14 +314,27 @@ const ProfilePage = () => {
 
         <ScrollArea
           autoFocus
-          className="h-[585px] pb-0 mb-0 pr-8 flex flex-col gap-8"
+          className="h-[585px] pb-0 mb-0 pr-8 flex flex-col"
         >
-          <Experiences experiences={experiences} />
-          <Education educations={educations} />
-          <Skills skills={skills} />
-          <Projects projects={projects} />
-          <Certifications certifications={certifications} />
-          <Achievements achievements={achievements} />
+          {experiences && experiences.length > 0 && (
+            <Experiences experiences={experiences} />
+          )}
+
+          {educations && educations.length > 0 && (
+            <Education educations={educations} />
+          )}
+
+          {skills && skills.length > 0 && <Skills skills={skills} />}
+
+          {projects && projects.length > 0 && <Projects projects={projects} />}
+
+          {certifications && certifications.length > 0 && (
+            <Certifications certifications={certifications} />
+          )}
+
+          {achievements && achievements.length > 0 && (
+            <Achievements achievements={achievements} />
+          )}
         </ScrollArea>
       </div>
     </div>
