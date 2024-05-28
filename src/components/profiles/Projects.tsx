@@ -10,7 +10,9 @@ export default function Projects({ projects, className }) {
             key={index}
             className="mb-2 list-none border-b-2 border-dashed pb-2"
           >
-            <strong>{project.name}:</strong> {project.description}
+            <p className="text-justify">
+              <strong>{project.name}:</strong> {project.description}
+            </p>
             <ul className="list-none py-2 flex gap-2">
               {project.tags.map((tag, idx) => (
                 <li
