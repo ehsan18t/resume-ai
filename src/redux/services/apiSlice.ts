@@ -1,22 +1,17 @@
-import type {
-  BaseQueryFn,
-  FetchArgs,
-  FetchBaseQueryError,
-} from "@reduxjs/toolkit/query";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Mutex } from "async-mutex";
 import { logout, setAuth } from "../features/authSlice";
 
 const mutex = new Mutex();
+
+// Base query without auth
 const baseQuery = fetchBaseQuery({
   baseUrl: `${process.env.NEXT_PUBLIC_HOST}/api`,
   credentials: "include",
 });
-const baseQueryWithReauth: BaseQueryFn<
-  string | FetchArgs,
-  unknown,
-  FetchBaseQueryError
-> = async (args, api, extraOptions) => {
+
+// Base query with re-auth logic
+const baseQueryWithReauth = async (args, api, extraOptions) => {
   await mutex.waitForUnlock();
   let result = await baseQuery(args, api, extraOptions);
 
@@ -50,8 +45,17 @@ const baseQueryWithReauth: BaseQueryFn<
   return result;
 };
 
+// Wrapper function to decide which baseQuery to use
+const dynamicBaseQuery = async (args, api, extraOptions = {}) => {
+  const { authRequired = true } = extraOptions; // Default to authRequired: true
+  if (authRequired) {
+    return baseQueryWithReauth(args, api, extraOptions);
+  }
+  return baseQuery(args, api, extraOptions);
+};
+
 export const apiSlice = createApi({
   reducerPath: "api",
-  baseQuery: baseQueryWithReauth,
+  baseQuery: dynamicBaseQuery,
   endpoints: (builder) => ({}),
 });
