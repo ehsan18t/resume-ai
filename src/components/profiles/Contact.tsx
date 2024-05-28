@@ -77,18 +77,25 @@ const Contact = ({
   return (
     <div className={cn("mb-8 flex flex-col gap-1", className)}>
       <h2 className="text-2xl font-bold">Contact</h2>
-      <p className="flex gap-2">
-        <CiLocationOn className="text-2xl" /> {location}
+      <p className="text-justify flex gap-1">
+        <span>
+          <CiLocationOn size={25} />
+        </span>
+        {location}
       </p>
-      <p className="flex gap-2">
-        <CiGlobe className="text-2xl" />
+      <p className="text-justify flex gap-1">
+        <span>
+          <CiGlobe size={25} />
+        </span>
         <a href={`https://${website}`} className="text-blue-500">
           {website}
         </a>
       </p>
 
-      <p className="flex gap-2">
-        <CiPhone className="text-2xl" />
+      <p className="text-justify flex gap-1">
+        <span>
+          <CiPhone size={25} />
+        </span>
         {phoneNumbers.map((number, index) => (
           <a
             key={`phone_${index}`}
@@ -99,7 +106,7 @@ const Contact = ({
           </a>
         ))}
       </p>
-      <ul className="flex gap-1">
+      <ul className="flex gap-1 pt-2">
         {socials.map((social, index) => (
           <li key={`social_${index}`}>
             <a href={social.link} className="text-blue-500">
