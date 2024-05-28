@@ -13,7 +13,7 @@ export default function SidebarHeader({ user, onClose }) {
   return (
     <div className="flex gap-5 items-center pb-2 border-b-[1px]">
       <Avatar className="w-24 h-24">
-        <AvatarImage src={user?.profile_picture} alt={name} />
+        <AvatarImage src={user?.profile_picture} alt={user?.name} />
         <AvatarFallback className="text-4xl">
           {user?.firstName?.charAt(0)}
         </AvatarFallback>
