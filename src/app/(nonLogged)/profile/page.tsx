@@ -312,13 +312,16 @@ const ProfilePage = () => {
           </ul>
         </div>
 
-        <ScrollArea autoFocus className="h-[585px] pb-0 mb-0 pr-8">
-          <Experiences experiences={experiences} className="mt-8" />
-          <Education educations={educations} className="mt-8" />
-          <Skills skills={skills} className="mt-8" />
-          <Projects projects={projects} className="mt-8" />
-          <Certifications certifications={certifications} className="mt-8" />
-          <Achievements achievements={achievements} className="mt-8" />
+        <ScrollArea
+          autoFocus
+          className="h-[585px] pb-0 mb-0 pr-8 flex flex-col gap-8"
+        >
+          <Experiences experiences={experiences} />
+          <Education educations={educations} />
+          <Skills skills={skills} />
+          <Projects projects={projects} />
+          <Certifications certifications={certifications} />
+          <Achievements achievements={achievements} />
         </ScrollArea>
       </div>
     </div>

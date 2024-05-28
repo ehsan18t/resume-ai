@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 const Skills = ({ skills, className }) => {
   return (
-    <div className={cn(className)}>
+    <div className={cn("mb-8", className)}>
       <h2 className="text-2xl font-bold pb-1">Skills</h2>
       <ul className="flex flex-wrap justify-between flex-row text-justify pl-1">
         {skills.map((skill, index) => (
