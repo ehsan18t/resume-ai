@@ -1,11 +1,7 @@
-import { Footer } from "@/components/common";
 import Navbar from "@/components/common/nav/LoggedNavbar";
 import { RequireAuth } from "@/components/utils";
 import Provider from "@/redux/provider";
-import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Resume AI",
@@ -23,7 +19,6 @@ export default function RootLayout({
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
         <RequireAuth>{children}</RequireAuth>
       </div>
-      <Footer />
     </Provider>
   );
 }
