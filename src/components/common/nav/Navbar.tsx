@@ -9,7 +9,6 @@ export default function Navbar() {
   useVerify();
 
   const { isAuthenticated } = useAppSelector((state) => state.auth);
-  console.log(isAuthenticated);
 
   if (isAuthenticated) {
     return <LoggedNavbar />;
