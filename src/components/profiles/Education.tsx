@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 const Education = ({ educations, className }) => {
   return (
     <div className={cn("mb-8", className)}>
-      <h2 className="text-2xl font-bold pb-4">Education</h2>
+      <h2 className="text-2xl font-bold pb-2">Education</h2>
       {educations &&
         educations.map((edu, index) => (
           <div key={index} className="mb-4">
