@@ -22,6 +22,9 @@ const authApiSlice = apiSlice.injectEndpoints({
     retrieveUser: builder.query<User, void>({
       query: () => "/users/me/",
     }),
+    retrieveUserProfile: builder.query({
+      query: (user) => `/profile?u=${user}`,
+    }),
     socialAuthenticate: builder.mutation<CreateUserResponse, SocialAuthArgs>({
       query: ({ provider, state, code }) => ({
         url: `/o/${provider}/?state=${encodeURIComponent(
@@ -100,6 +103,7 @@ const authApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useRetrieveUserQuery,
+  useRetrieveUserProfileQuery,
   useSocialAuthenticateMutation,
   useLoginMutation,
   useRegisterMutation,
