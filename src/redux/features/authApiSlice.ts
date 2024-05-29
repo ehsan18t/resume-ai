@@ -24,6 +24,7 @@ const authApiSlice = apiSlice.injectEndpoints({
     }),
     retrieveUserProfile: builder.query({
       query: (user) => `/profile?u=${user}`,
+      extraOptions: { authRequired: false },
     }),
     socialAuthenticate: builder.mutation<CreateUserResponse, SocialAuthArgs>({
       query: ({ provider, state, code }) => ({
