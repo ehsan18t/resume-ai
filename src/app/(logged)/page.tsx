@@ -14,7 +14,7 @@ export default function Feed() {
   return (
     <div className="grid grid-cols-5 gap-4 p-4 w-full">
       <div class="w-full col-span-1 p-4 text-center"></div>
-      <div class="col-span-3 p-4 text-center">
+      <div class="col-span-3 p-4">
         <div className="w-full flex justify-center mb-6">
           <NewPost />
         </div>
