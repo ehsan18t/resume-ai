@@ -14,6 +14,19 @@ import { AiOutlineLike } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
 
+const NewLineContent = ({ content }) => {
+  return (
+    <p>
+      {content.split("\n").map((line, index) => (
+        <span key={index}>
+          {line}
+          <br />
+        </span>
+      ))}
+    </p>
+  );
+};
+
 function Post({ user, post }) {
   return (
     <Card className="my-4">
@@ -26,7 +39,7 @@ function Post({ user, post }) {
         <CardDescription>{post.formatted_time}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>{post.content}</p>
+        <NewLineContent content={post.content} />
       </CardContent>
       <CardFooter className="flex justify-between">
         <div className="flex gap-3">
