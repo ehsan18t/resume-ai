@@ -16,7 +16,7 @@ export default function Feed({ params }) {
       <div className="w-full col-span-1 p-4 text-center"></div>
       <div className="col-span-3">
         <div className="w-full flex justify-center mb-2">
-          <NewPost />
+          <NewPost slung={params.slung} />
         </div>
         <ScrollArea className="mx-auto h-[630px] py-1 p-4 rounded-lg">
           {posts.map((post) => (

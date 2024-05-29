@@ -16,12 +16,12 @@ import { useCreatePostMutation } from "@/redux/features/postApiSlice";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function NewPost() {
+export default function NewPost({ slung = "" }) {
   const router = useRouter();
   const [form, setForm] = useState({
     content: "",
     is_job_circular: false,
-    category: "",
+    category: slung,
   });
   const [open, setOpen] = useState(false);
 
@@ -36,7 +36,7 @@ export default function NewPost() {
         category: "",
       });
       setOpen(false);
-      router.push("/");
+      router.refresh();
     } catch (error) {
       console.error("Failed to create post:", error);
     }
