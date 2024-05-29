@@ -11,8 +11,19 @@ import {
 import { Input } from "@/components/ui/input";
 import { useRetrieveUserQuery } from "@/redux/features/authApiSlice";
 
-export default function page() {
+const EmailInput = () => {
   const { data: user, error, isLoading } = useRetrieveUserQuery();
+  return (
+    <Input
+      className="inputBoxClasses"
+      value={user?.email}
+      type="email"
+      placeholder="Email"
+    />
+  );
+};
+
+export default function page() {
   const inputBoxClasses =
     "border-0 focus-visible:ring-1 focus-visible:ring-slate-500 transition duration-200 ease-in-out";
   return (
@@ -21,12 +32,7 @@ export default function page() {
         <CardTitle>Settings</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
-        <Input
-          className="inputBoxClasses"
-          value={user?.email}
-          type="email"
-          placeholder="Email"
-        />
+        <EmailInput />
         <Input
           className="inputBoxClasses"
           type="password"
