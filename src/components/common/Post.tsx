@@ -53,7 +53,9 @@ function Post({ user, post }) {
             <MdOutlineBookmarkAdd size={25} />
           </Button>
         </div>
-        <div>{post.is_job_circular && <ApplyNow post={post} />}</div>
+        <div>
+          {post.is_job_circular && <ApplyNow post={post} user={user} />}
+        </div>
       </CardFooter>
     </Card>
   );
