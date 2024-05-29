@@ -20,12 +20,7 @@ export default function Feed() {
         </div>
         <ScrollArea className="mx-auto h-[630px] py-1 p-4 rounded-lg">
           {posts.map((post) => (
-            <Post
-              key={`post_${post.id}`}
-              user={post.user}
-              content={post.content}
-              time={post.formatted_time}
-            />
+            <Post key={`post_${post.id}`} user={post.user} post={post} />
           ))}
         </ScrollArea>
       </div>
