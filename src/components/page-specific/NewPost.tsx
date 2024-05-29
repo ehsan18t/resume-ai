@@ -10,12 +10,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { useCreatePostMutation } from "@/redux/features/postApiSlice";
 import { useRouter } from "next/navigation";
-
 import { useState } from "react";
 
 export default function NewPost() {
@@ -29,12 +27,25 @@ export default function NewPost() {
 
   const [createPost, { isLoading }] = useCreatePostMutation();
 
+  const handleSubmit = async () => {
+    try {
+      await createPost(form).unwrap();
+      setForm({
+        content: "",
+        is_job_circular: false,
+        category: "",
+      });
+      setOpen(false);
+      router.push("/");
+    } catch (error) {
+      console.error("Failed to create post:", error);
+    }
+  };
+
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button onClick={() => setOpen(!open)} className="w-2/4 bg-slate-600">
-          Create New Post
-        </Button>
+        <Button className="w-2/4 bg-slate-600">Create New Post</Button>
       </DialogTrigger>
       <DialogContent className="max-w-screen-md">
         <DialogHeader>
@@ -58,22 +69,8 @@ export default function NewPost() {
           <Label htmlFor="job-post">as Job Circular</Label>
         </div>
         <DialogFooter>
-          <Button
-            onClick={() =>
-              createPost(form)
-                .unwrap()
-                .then(() => {
-                  setForm({
-                    content: "",
-                    is_job_circular: false,
-                    category: "",
-                  });
-                  setOpen(false);
-                  router.push("/");
-                })
-            }
-          >
-            Post
+          <Button onClick={handleSubmit} disabled={isLoading}>
+            {isLoading ? "Posting..." : "Post"}
           </Button>
         </DialogFooter>
       </DialogContent>
