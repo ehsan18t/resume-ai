@@ -1,10 +1,10 @@
 "use client";
 
 import Post from "@/components/common/Post";
+import CategoryList from "@/components/page-specific/CategoryList";
 import NewPost from "@/components/page-specific/NewPost";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useRetrieveFeedQuery } from "@/redux/features/postApiSlice";
-
 export default function Feed() {
   let { data: posts, isLoading } = useRetrieveFeedQuery();
 
@@ -12,20 +12,26 @@ export default function Feed() {
   posts = posts?.posts;
 
   return (
-    <div className="w-full h-full mx-auto">
-      <div className="w-full flex justify-center mb-6">
-        <NewPost />
+    <div className="grid grid-cols-5 gap-4 p-4 w-full">
+      <div class="w-full col-span-1 p-4 text-center"></div>
+      <div class="col-span-3 p-4 text-center">
+        <div className="w-full flex justify-center mb-6">
+          <NewPost />
+        </div>
+        <ScrollArea className="mx-auto h-[550px] py-1 p-4 rounded-lg">
+          {posts.map((post) => (
+            <Post
+              key={`post_${post.id}`}
+              user={post.user}
+              content={post.content}
+              time={post.formatted_time}
+            />
+          ))}
+        </ScrollArea>
       </div>
-      <ScrollArea className="mx-auto h-[550px] w-3/5 py-1 p-4 rounded-lg">
-        {posts.map((post) => (
-          <Post
-            key={`post_${post.id}`}
-            user={post.user}
-            content={post.content}
-            time={post.formatted_time}
-          />
-        ))}
-      </ScrollArea>
+      <div class="col-span-1 p-4 text-center">
+        <CategoryList />
+      </div>
     </div>
   );
 }
