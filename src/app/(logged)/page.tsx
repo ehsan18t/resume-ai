@@ -13,8 +13,8 @@ export default function Feed() {
 
   return (
     <div className="grid grid-cols-5 gap-4 w-full">
-      <div class="w-full col-span-1 p-4 text-center"></div>
-      <div class="col-span-3">
+      <div className="w-full col-span-1 p-4 text-center"></div>
+      <div className="col-span-3">
         <div className="w-full flex justify-center mb-2">
           <NewPost />
         </div>
@@ -29,7 +29,7 @@ export default function Feed() {
           ))}
         </ScrollArea>
       </div>
-      <div class="col-span-1 p-4 text-center">
+      <div className="col-span-1 p-4 text-center">
         <CategoryList />
       </div>
     </div>
