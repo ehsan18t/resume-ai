@@ -12,13 +12,13 @@ export default function Feed() {
   posts = posts?.posts;
 
   return (
-    <div className="grid grid-cols-5 gap-4 p-4 w-full">
+    <div className="grid grid-cols-5 gap-4 w-full">
       <div class="w-full col-span-1 p-4 text-center"></div>
-      <div class="col-span-3 p-4">
-        <div className="w-full flex justify-center mb-6">
+      <div class="col-span-3">
+        <div className="w-full flex justify-center mb-2">
           <NewPost />
         </div>
-        <ScrollArea className="mx-auto h-[550px] py-1 p-4 rounded-lg">
+        <ScrollArea className="mx-auto h-[630px] py-1 p-4 rounded-lg">
           {posts.map((post) => (
             <Post
               key={`post_${post.id}`}
