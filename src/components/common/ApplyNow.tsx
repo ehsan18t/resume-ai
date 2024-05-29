@@ -11,17 +11,36 @@ export default function ApplyNow({ user, post }) {
     await applyJob({ post: post.id });
   };
 
+  const browse = () => {
+    window.open(`/cv/${post.id}`, "_blank");
+  };
+
   return (
-    <Button
-      variant="ghost"
-      className="bg-slate-200 hover:bg-slate-300"
-      size="sm"
-      onClick={handleApply}
-      disabled={
-        isLoading || isSuccess || post.is_applied || user.id === currentUser?.id
-      }
-    >
-      {isLoading ? "Applying..." : "Apply Now"}
-    </Button>
+    <div className="flex gap-2">
+      <Button
+        variant="ghost"
+        className="bg-slate-200 hover:bg-slate-300"
+        size="sm"
+        onClick={handleApply}
+        disabled={
+          isLoading ||
+          isSuccess ||
+          post.is_applied ||
+          user.id === currentUser?.id
+        }
+      >
+        {isLoading ? "Applying..." : "Apply Now"}
+      </Button>
+      {user.id === currentUser?.id && (
+        <Button
+          variant="ghost"
+          className="bg-slate-200 hover:bg-slate-300"
+          size="sm"
+          onClick={browse}
+        >
+          Check Applications
+        </Button>
+      )}
+    </div>
   );
 }
