@@ -7,12 +7,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { AiOutlineLike } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
+import ApplyNow from "./ApplyNow";
 
 const NewLineContent = ({ content }) => {
   return (
@@ -53,17 +53,7 @@ function Post({ user, post }) {
             <MdOutlineBookmarkAdd size={25} />
           </Button>
         </div>
-        <div>
-          {post.is_job_circular && (
-            <Button
-              variant="ghost"
-              className="bg-slate-200 hover:bg-slate-300"
-              size="sm"
-            >
-              Apply Now
-            </Button>
-          )}
-        </div>
+        <div>{post.is_job_circular && <ApplyNow post={post} />}</div>
       </CardFooter>
     </Card>
   );
