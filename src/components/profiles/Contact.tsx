@@ -18,7 +18,7 @@ const generateSocialIcon = (socialMedia) => {
   }
 
   Object.keys(socialMedia).forEach((key) => {
-    if (!socialMedia[key]) {
+    if (!socialMedia[key] || socialMedia[key] === "null") {
       return;
     }
 
@@ -88,7 +88,7 @@ const Contact = ({
     <div className={cn("mb-8 flex flex-col gap-1", className)}>
       <h2 className="text-2xl font-bold">Contact</h2>
       {location && <Social Icon={CiLocationOn}>{location}</Social>}
-      {website && (
+      {website && website != "null" && (
         <Social Icon={CiGlobe}>
           <a href={`https://${website}`} className="text-blue-500">
             {website}
