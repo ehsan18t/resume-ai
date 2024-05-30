@@ -88,7 +88,7 @@ const LandingPage = () => {
       </section>
 
       {/* Call to Action Section */}
-      <div className="relative z-10 mt-32">
+      <div className="relative z-10 mt-10">
         <div style={{ height: "150px", overflow: "hidden" }}>
           <svg
             viewBox="0 0 500 150"
