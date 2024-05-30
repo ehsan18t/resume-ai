@@ -89,10 +89,19 @@ const LandingPage = () => {
 
       {/* Call to Action Section */}
       <div className="relative z-10 mt-32">
-        <div className="absolute inset-x-0 -top-44 -z-10 pointer-events-none">
-          <img src="/wave.svg" alt="Wave" className="w-full h-auto" />
+        <div style={{ height: "150px", overflow: "hidden" }}>
+          <svg
+            viewBox="0 0 500 150"
+            preserveAspectRatio="none"
+            style={{ height: "100%", width: "100%" }}
+          >
+            <path
+              d="M-19.19,14.44 C163.66,180.70 160.27,-111.00 519.19,95.09 L500.00,150.33 L0.00,150.33 Z"
+              style={{ stroke: "none", fill: "#0079FF" }}
+            ></path>
+          </svg>
         </div>
-        <section className="bg-gradient-to-b from-[#0079FF] to-gray-900 text-white py-20">
+        <section className="bg-gradient-to-b from-[#0079FF] to-gray-900 text-white pb-20 pt-4">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold mb-4">Get Started Today</h2>
             <p className="text-xl mb-8">
