@@ -12,6 +12,18 @@ const authApiSlice = apiSlice.injectEndpoints({
         body: { post, cv },
       }),
     }),
+    buildProfile: builder.mutation({
+      query: ({ pdf_file }) => {
+        const formData = new FormData();
+        formData.append("pdf_file", pdf_file);
+
+        return {
+          url: "/pdftoprofile/",
+          method: "POST",
+          body: formData,
+        };
+      },
+    }),
     updateCvStatus: builder.mutation({
       query: ({ post, user, status }) => ({
         url: "/post/cv/update-cv/",
@@ -25,5 +37,6 @@ const authApiSlice = apiSlice.injectEndpoints({
 export const {
   useRetrieveAppliedCvQuery,
   useApplyJobMutation,
+  useBuildProfileMutation,
   useUpdateCvStatusMutation,
 } = authApiSlice;
