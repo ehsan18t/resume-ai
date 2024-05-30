@@ -36,7 +36,7 @@ const LandingPage = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 mt-32">
+      <section id="features" className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">
             Why Choose Resume AI?
