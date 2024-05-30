@@ -49,8 +49,8 @@ const ProfilePage = ({ params }) => {
         title={title}
         className="mb-5"
       />
-      <div className="flex gap-8">
-        <div className="basis-1/2">
+      <div className="grid grid-cols-4 w-full gap-8">
+        <div className="col-span-1">
           <Contact
             location={location}
             phoneNumbers={phone_numbers}
@@ -77,7 +77,7 @@ const ProfilePage = ({ params }) => {
 
         <ScrollArea
           autoFocus
-          className="h-[585px] pb-0 mb-0 pr-8 flex flex-col"
+          className="col-span-3 h-[585px] pb-0 mb-0 pr-8 flex flex-col"
         >
           {experiences && experiences.length > 0 && (
             <Experiences experiences={experiences} />
