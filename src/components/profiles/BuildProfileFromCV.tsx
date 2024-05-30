@@ -1,3 +1,4 @@
+// BuildProfileFromCV
 "use client";
 
 import { Alert } from "@/components/ui/alert";
@@ -14,14 +15,13 @@ import { useBuildProfileMutation } from "@/redux/features/cvApiSlice";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-export default function BuildProfileFromCV({ user }) {
-  const [buildProfile, { isLoading, error }] = useBuildProfileMutation();
+export default function BuildProfileFromCV({ onProfileUpdate }) {
+  const [buildProfile, { isLoading, error, isSuccess }] =
+    useBuildProfileMutation();
 
   const [open, setOpen] = useState(false);
-
   const [file, setFile] = useState(null);
   const [response, setResponse] = useState(null);
-  const [profile, setProfile] = useState(null);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -32,12 +32,18 @@ export default function BuildProfileFromCV({ user }) {
     if (!file) return;
 
     try {
+      console.log("Uploading file...");
       const response = await buildProfile({ pdf_file: file });
-      const responseData = await response.json();
-      setResponse(responseData);
-      setProfile(responseData.profile);
-      setOpen(false);
       toast.success("Profile created successfully.");
+      setOpen(false);
+      setFile(null);
+
+      // Trigger the refresh callback
+      if (onProfileUpdate) {
+        onProfileUpdate(response.data.profile);
+      }
+
+      console.log("Profile created successfully.");
     } catch (e) {
       toast.error("Error uploading file. Please try again.");
     }

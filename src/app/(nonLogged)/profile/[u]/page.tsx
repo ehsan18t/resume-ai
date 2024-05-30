@@ -1,4 +1,6 @@
+// main page
 "use client";
+
 import {
   Achievements,
   Certifications,
@@ -12,16 +14,32 @@ import {
 } from "@/components/profiles";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useRetrieveUserProfileQuery } from "@/redux/features/authApiSlice";
+import { useEffect, useState } from "react";
 
 const ProfilePage = ({ params }) => {
-  const { data, error, isLoading } = useRetrieveUserProfileQuery(params.u);
+  const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null);
+
+  const { data, error, isLoading, isSuccess } = useRetrieveUserProfileQuery(
+    params.u
+  );
+
+  useEffect(() => {
+    if (isSuccess) {
+      setUser(data.user);
+      setProfile(data.profile);
+    }
+  }, [isSuccess, data]);
 
   if (isLoading) return <div>Loading...</div>;
 
   if (error) return <div>Error: {error.message}</div>;
 
-  const user = data?.user;
-  const profile = data?.profile;
+  if (!user || !profile) return <div>User not found</div>;
+
+  const handleProfileUpdate = (profile) => {
+    setProfile(profile);
+  };
 
   const {
     title,
@@ -42,7 +60,13 @@ const ProfilePage = ({ params }) => {
 
   return (
     <div className="pl-5 py-8">
-      <Header user={user} bio={bio} title={title} className="mb-5" />
+      <Header
+        user={user}
+        bio={bio}
+        title={title}
+        className="mb-5"
+        onProfileUpdate={handleProfileUpdate}
+      />
       <div className="grid grid-cols-4 w-full gap-8">
         <div className="col-span-1">
           <Contact

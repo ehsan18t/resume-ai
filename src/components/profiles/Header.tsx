@@ -1,3 +1,4 @@
+// Header.tsx
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -6,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAppSelector } from "@/redux/hooks";
 import BuildProfileFromCV from "./BuildProfileFromCV";
 
-const Header = ({ user, title = null, bio, className }) => {
+const Header = ({ user, title = null, bio, className, onProfileUpdate }) => {
   const authUser = useAppSelector((state) => state.auth.user);
 
   return (
@@ -23,7 +24,9 @@ const Header = ({ user, title = null, bio, className }) => {
           <h1 className="text-4xl font-bold">
             {user?.first_name + " " + user?.last_name}
           </h1>
-          {authUser && authUser.id === user.id && <BuildProfileFromCV />}
+          {authUser && authUser.id === user.id && (
+            <BuildProfileFromCV onProfileUpdate={onProfileUpdate} />
+          )}
         </span>
         {title && <h2 className="text-xl pb-1 text-stone-600">{title}</h2>}
         {bio && (
