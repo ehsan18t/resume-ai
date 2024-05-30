@@ -28,7 +28,9 @@ const Header = ({ user, title = null, bio, className, onProfileUpdate }) => {
             <BuildProfileFromCV onProfileUpdate={onProfileUpdate} />
           )}
         </span>
-        {title && <h2 className="text-xl pb-1 text-stone-600">{title}</h2>}
+        {title && title != "null" && (
+          <h2 className="text-xl pb-1 text-stone-600">{title}</h2>
+        )}
         {bio && (
           <>
             <p className="text-gray-600 text-justify">{bio}</p>
