@@ -9,52 +9,47 @@ import {
 } from "react-icons/ci";
 import { FaFacebook, FaGithub } from "react-icons/fa6";
 
-const generateSocialIcon = (socialLinks) => {
+const generateSocialIcon = (socialMedia) => {
   const socials = [];
   const iconClass = "text-4xl text-gray-700";
 
-  if (!socialLinks) {
+  if (!socialMedia) {
     return socials;
   }
 
-  const linkedIn = socialLinks.find((link) => link.includes("linkedin"));
-  if (linkedIn) {
-    socials.push({
-      icon: <CiLinkedin className={iconClass} />,
-      link: linkedIn,
-    });
-  }
+  Object.keys(socialMedia).forEach((key) => {
+    if (!socialMedia[key]) {
+      return;
+    }
 
-  const github = socialLinks.find((link) => link.includes("github"));
-  if (github) {
-    socials.push({
-      icon: <FaGithub className={iconClass} />,
-      link: github,
-    });
-  }
+    if (key === "email") {
+      socials.push({
+        icon: <BiLogoGmail className={iconClass} />,
+        link: `mailto:${socialMedia[key]}`,
+      });
+    } else if (key === "linkedin") {
+      socials.push({
+        icon: <CiLinkedin className={iconClass} />,
+        link: `https://linkedin.com/in/${socialMedia[key]}`,
+      });
+    } else if (key === "github") {
+      socials.push({
+        icon: <FaGithub className={iconClass} />,
+        link: `https://github.com/${socialMedia[key]}`,
+      });
+    } else if (key === "twitter" || key === "x") {
+      socials.push({
+        icon: <CiTwitter className={iconClass} />,
+        link: `https://x.com/${socialMedia[key]}`,
+      });
+    } else if (key === "facebook") {
+      socials.push({
+        icon: <FaFacebook className={iconClass} />,
+        link: `https://facebook.com/${socialMedia[key]}`,
+      });
+    }
+  });
 
-  const twitter = socialLinks.find((link) => link.includes("twitter"));
-  if (twitter) {
-    socials.push({
-      icon: <CiTwitter className={iconClass} />,
-      link: twitter,
-    });
-  }
-
-  const facebook = socialLinks.find((link) => link.includes("facebook"));
-  if (facebook) {
-    socials.push({
-      icon: <FaFacebook className={iconClass} />,
-      link: facebook,
-    });
-  }
-  const gmail = socialLinks.find((link) => link.includes("gmail"));
-  if (gmail) {
-    socials.push({
-      icon: <BiLogoGmail className={iconClass} />,
-      link: `mailto:${gmail}`,
-    });
-  }
   // const instagram = socialLinks.find((link) => link.includes("instagram"));
   // const youtube = socialLinks.find((link) => link.includes("youtube"));
   // const medium = socialLinks.find((link) => link.includes("medium"));
