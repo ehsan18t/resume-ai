@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <div className="bg-gray-100">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-600 to-gray-900 text-white py-32">
+      <section className="bg-gradient-to-r from-teal-900 to-[#0079FF] text-white py-32">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-4">Welcome to CareerBuilder</h1>
           <p className="text-xl mb-8">
@@ -17,7 +17,7 @@ const LandingPage = () => {
           <Button
             asChild
             variant="secondary"
-            className="text-lg border-2 hover:bg-transparent hover:text-white transition duration-200"
+            className="text-lg border-2 rounded-full p-5 shadow-lg hover:bg-transparent hover:text-white transition duration-200"
           >
             <Link href="/auth/register" target="_blank">
               Get Started
