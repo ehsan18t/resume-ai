@@ -10,7 +10,7 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-teal-900 to-[#0079FF] text-white py-32">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">Welcome to CareerBuilder</h1>
+          <h1 className="text-5xl font-bold mb-4">Welcome to Resume AI</h1>
           <p className="text-xl mb-8">
             Empowering Your Professional Journey with AI-Powered Solutions
           </p>
@@ -36,10 +36,10 @@ const LandingPage = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20">
+      <section id="features" className="py-20 mt-32">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">
-            Why Choose CareerBuilder?
+            Why Choose Resume AI?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Job Seekers Feature */}
@@ -88,24 +88,29 @@ const LandingPage = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="bg-gradient-to-b from-[#0079FF]/90 to-gray-900 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Get Started Today</h2>
-          <p className="text-xl mb-8">
-            Join CareerBuilder and take the next step in your professional
-            journey.
-          </p>
-          <Button
-            asChild
-            variant="outline"
-            className="bg-transparent text-lg border-2 transition duration-200"
-          >
-            <Link href="/auth/register" target="_blank">
-              Sign Up Now
-            </Link>
-          </Button>
+      <div className="relative z-10 mt-32">
+        <div className="absolute inset-x-0 -top-44 -z-10 pointer-events-none">
+          <img src="/wave.svg" alt="Wave" className="w-full h-auto" />
         </div>
-      </section>
+        <section className="bg-gradient-to-b from-[#0079FF] to-gray-900 text-white py-20">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl font-bold mb-4">Get Started Today</h2>
+            <p className="text-xl mb-8">
+              Join Resume AI and take the next step in your professional
+              journey.
+            </p>
+            <Button
+              asChild
+              variant="outline"
+              className="bg-transparent text-lg border-2 transition duration-200"
+            >
+              <Link href="/auth/register" target="_blank">
+                Sign Up Now
+              </Link>
+            </Button>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
