@@ -48,7 +48,7 @@ const LoggedNavbar = ({ children }: any) => {
   }, [isSidebarOpen]);
 
   return (
-    <nav className="bg-white p-4 shadow-sm">
+    <nav className="bg-white p-4 shadow">
       <div className="flex items-center justify-between">
         <Logo />
         <Search />

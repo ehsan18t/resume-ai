@@ -3,7 +3,7 @@ import Logo from "./Logo";
 
 export default function NonLoggedNav() {
   return (
-    <nav className="bg-white p-4 shadow-sm">
+    <nav className="bg-white p-4 shadow">
       <div className="flex items-center justify-between">
         <Logo />
         <div className="text-gray-700 flex gap-3 font-semibold p-4 underline">
