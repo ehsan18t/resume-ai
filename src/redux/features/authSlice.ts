@@ -3,12 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 interface AuthState {
   isAuthenticated: boolean;
   isLoading: boolean;
+  user: any;
 }
 
-const initialState = {
+const initialState: AuthState = {
   isAuthenticated: false,
   isLoading: true,
-} as AuthState;
+  user: null,
+};
 
 const authSlice = createSlice({
   name: "auth",
@@ -17,8 +19,12 @@ const authSlice = createSlice({
     setAuth: (state) => {
       state.isAuthenticated = true;
     },
+    setUserData: (state, action) => {
+      state.user = action.payload;
+    },
     logout: (state) => {
       state.isAuthenticated = false;
+      state.user = null;
     },
     finishInitialLoad: (state) => {
       state.isLoading = false;
@@ -26,5 +32,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { setAuth, logout, finishInitialLoad } = authSlice.actions;
+export const { setAuth, setUserData, logout, finishInitialLoad } =
+  authSlice.actions;
 export default authSlice.reducer;
