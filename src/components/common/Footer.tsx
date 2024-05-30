@@ -4,21 +4,23 @@ const Footer = () => {
     "Transform your career with the power of your CV. Apply for your dream job, get constructive feedback, and grow professionally. HR professionals can review CVs more efficiently with AI-powered summaries, ensuring the best match for every role.";
 
   return (
-    <footer class="bg-gray-800 text-white py-4 w-full">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-4 justify-between items-center">
-          <div class="mb-4 col-span-1 md:mb-0">
-            <h2 class="text-2xl font-bold">{title}</h2>
-            <p class="mt-2">Empowering Your Professional Journey</p>
+    <footer className="bg-gray-900 text-white">
+      <div className="px-8 py-4">
+        <div className="grid grid-cols-4 text-left">
+          <div className="mb-2 col-span-1 lg:mb-0 border-r-2 border-gray-600">
+            <p className="text-2xl font-bold">{title}</p>
+            <p className="text-sm">Empowering Your Professional Journey</p>
           </div>
-          <div class="col-span-3">
-            <p class="italic text-center flex justify-center items-center">
-              &quot;{description}&quot;
-            </p>
-            <p class="mt-4 text-center text-sm font-semibold text-gray-400">
-              &copy; 2024 {title}. All Rights Reserved.
-            </p>
-          </div>
+          <p className="italic ml-0 col-span-3 flex text-center text-sm items-center text-gray-400 lg:ml-4">
+            {description}
+          </p>
+        </div>
+      </div>
+      <div className="bg-gray-800 py-4">
+        <div className="container mx-auto px-8">
+          <p className="text-center text-sm font-semibold text-gray-500">
+            &copy; {new Date().getFullYear()} {title}. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
