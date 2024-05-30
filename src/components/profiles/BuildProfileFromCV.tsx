@@ -14,7 +14,7 @@ import { useBuildProfileMutation } from "@/redux/features/cvApiSlice";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-export default function BuildProfileFromCV() {
+export default function BuildProfileFromCV({ user }) {
   const [buildProfile, { isLoading, error }] = useBuildProfileMutation();
 
   const [open, setOpen] = useState(false);

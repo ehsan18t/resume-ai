@@ -42,13 +42,7 @@ const ProfilePage = ({ params }) => {
 
   return (
     <div className="pl-5 py-8">
-      <Header
-        name={user?.first_name + " " + user?.last_name}
-        profile_picture={`${process.env.NEXT_PUBLIC_HOST}/${user?.profile_picture}`}
-        bio={bio}
-        title={title}
-        className="mb-5"
-      />
+      <Header user={user} bio={bio} title={title} className="mb-5" />
       <div className="grid grid-cols-4 w-full gap-8">
         <div className="col-span-1">
           <Contact
