@@ -23,7 +23,7 @@ const Profile = ({ application, setData }) => {
   );
 };
 
-export default function page({ params }) {
+export default function Page({ params }) {
   const { data, error, isLoading } = useRetrieveAppliedCvQuery(params.post);
   const [profile, setProfile] = useState(null);
   const [app, setApp] = useState(null);
