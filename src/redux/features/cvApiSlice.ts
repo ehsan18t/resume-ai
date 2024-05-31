@@ -5,6 +5,9 @@ const authApiSlice = apiSlice.injectEndpoints({
     retrieveAppliedCv: builder.query({
       query: (post) => `/cv/list/?post=${post}`,
     }),
+    retrieveProfileSummary: builder.query({
+      query: (user_id) => `/cv/summary/?u=${user_id}`,
+    }),
     applyJob: builder.mutation({
       query: ({ post, cv }) => ({
         url: "/cv/apply/",
@@ -36,6 +39,7 @@ const authApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useRetrieveAppliedCvQuery,
+  useRetrieveProfileSummaryQuery,
   useApplyJobMutation,
   useBuildProfileMutation,
   useUpdateCvStatusMutation,
