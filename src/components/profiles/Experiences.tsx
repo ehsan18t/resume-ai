@@ -15,10 +15,7 @@ const Experiences = ({ experiences, className }) => {
               <p>{exp.description}</p>
               <p className="text-sm">
                 ({exp.start_date} -{" "}
-                {exp.end_date == null || !exp.end_date
-                  ? exp.end_date
-                  : "Present"}
-                )
+                {exp.end_date != null ? exp.end_date : "Present"})
               </p>
             </div>
           ))}
