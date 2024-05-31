@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <Card className="p-5 w-2/4">
+      <Card className="p-5 w-2/4 shadow">
         <CardHeader>
           <CardTitle className="text-center">
             Sign up for your account
