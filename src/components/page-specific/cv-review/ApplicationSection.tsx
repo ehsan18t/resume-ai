@@ -61,7 +61,7 @@ export default function ApplicationSection({ data, className }) {
 
   return (
     <ScrollArea autoFocus type="none" className={cn("text-left ", className)}>
-      <div className="grid grid-cols-3 gap-3 h-[410px]">
+      <div className="grid grid-cols-3 gap-3 h-[455px]">
         <div className="col-span-2">{element}</div>
         <Card className="col-auto">
           <CardHeader>

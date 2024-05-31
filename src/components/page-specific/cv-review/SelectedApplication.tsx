@@ -60,7 +60,7 @@ export default function SelectedApplication({ application, className }) {
       )}
       <h1 className="text-2xl py-2 font-bold">Profile</h1>
       {isLoading ? (
-        <div className="grid grid-cols-3 gap-3 h-[410px]">
+        <div className="grid grid-cols-3 gap-3 h-[455px]">
           <Skeleton className="col-span-2" />
           <Skeleton className="col-auto" />
         </div>
