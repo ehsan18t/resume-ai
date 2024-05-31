@@ -14,13 +14,15 @@ const Education = ({ educations, className }) => {
               <h3 className="text-xl font-semibold">{edu.institution}</h3>
               <div className="flex gap-3 justify-between items-center text-start">
                 <p>{edu.degree}</p>
-                <p className="text-sm">
-                  ({edu.start_date} -{" "}
-                  {edu.end_date == null || !edu.end_date
-                    ? edu.end_date
-                    : "Present"}
-                  )
-                </p>
+                {edu.start_date && (
+                  <p className="text-sm">
+                    ({edu.start_date} -{" "}
+                    {edu.end_date == null || !edu.end_date
+                      ? edu.end_date
+                      : "Present"}
+                    )
+                  </p>
+                )}
               </div>
               <p>
                 <strong>CGPA:</strong> {edu.cgpa}
