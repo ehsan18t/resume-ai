@@ -59,7 +59,7 @@ const ProfilePage = ({ params }) => {
   } = profile;
 
   return (
-    <div className="pl-5 py-8">
+    <div className="p-3">
       <Header
         user={user}
         bio={bio}
@@ -96,7 +96,7 @@ const ProfilePage = ({ params }) => {
         <ScrollArea
           autoFocus
           type="none"
-          className="col-span-3 h-[585px] pb-0 mb-0 pr-8 flex flex-col"
+          className="col-span-3 h-[580px] flex flex-col"
         >
           {experiences && experiences.length > 0 && (
             <Experiences experiences={experiences} />

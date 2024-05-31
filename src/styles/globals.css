@@ -67,10 +67,18 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
   }
+}
+
+.main-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100dvh;
 }

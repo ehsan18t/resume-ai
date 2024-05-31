@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <Provider>
       <Navbar />
-      <div className="mx-auto">{children}</div>
+      <div className="p-3">{children}</div>
     </Provider>
   );
 }

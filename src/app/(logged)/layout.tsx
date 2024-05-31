@@ -17,7 +17,7 @@ export default function RootLayout({
     <Provider>
       <Setup />
       <Navbar />
-      <div className="mx-auto my-8">
+      <div className="p-3">
         <RequireAuth>{children}</RequireAuth>
       </div>
     </Provider>

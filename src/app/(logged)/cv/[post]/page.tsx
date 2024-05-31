@@ -10,7 +10,7 @@ export default function Page({ params }) {
   const [application, setApplication] = useState(null);
 
   return (
-    <div className="h-[556px] grid grid-cols-4 gap-2 mx-4">
+    <div className="h-full w-full grid grid-cols-4 gap-2">
       <ApplicationList
         postId={params.post}
         handleSelectedApplication={setApplication}

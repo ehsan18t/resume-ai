@@ -18,10 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-w-full min-h-screen`}>
-        {children}
-        <ToastContainer />
-        <Footer />
+      <body className={`${inter.className}`}>
+        <div className="main-container">
+          {children}
+          <ToastContainer />
+          <Footer />
+        </div>
       </body>
     </html>
   );
