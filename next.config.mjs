@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  typescript: {
-    // !! WARN !! Disables type checking, use with caution
-    ignoreBuildErrors: true,
-  },
-};
+const nextConfig = {};
 
 export default nextConfig;
