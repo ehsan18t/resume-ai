@@ -18,7 +18,10 @@ export default function Feed() {
         <div className="w-full flex justify-center mb-2">
           <NewPost />
         </div>
-        <ScrollArea className="mx-auto h-[630px] py-1 p-4 rounded-lg">
+        <ScrollArea
+          type="none"
+          className="mx-auto h-[630px] py-1 p-4 rounded-lg"
+        >
           {posts.map((post) => (
             <Post key={`post_${post.id}`} user={post.user} post={post} />
           ))}

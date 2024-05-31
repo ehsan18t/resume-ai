@@ -95,6 +95,7 @@ const ProfilePage = ({ params }) => {
 
         <ScrollArea
           autoFocus
+          type="none"
           className="col-span-3 h-[585px] pb-0 mb-0 pr-8 flex flex-col"
         >
           {experiences && experiences.length > 0 && (
