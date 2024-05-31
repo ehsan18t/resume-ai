@@ -10,7 +10,7 @@ import ApplicationSection from "./ApplicationSection";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function SelectedApplication({ application, className }) {
-  const { data, isLoading } = useRetrieveProfileSummaryQuery(
+  const { data, isLoading, isFetching } = useRetrieveProfileSummaryQuery(
     application?.user.id
   );
 
@@ -59,7 +59,7 @@ export default function SelectedApplication({ application, className }) {
         </Link>
       )}
       <h1 className="text-2xl py-2 font-bold">Profile</h1>
-      {isLoading ? (
+      {isLoading || isFetching ? (
         <div className="grid grid-cols-3 gap-3 h-[455px]">
           <Skeleton className="col-span-2" />
           <Skeleton className="col-auto" />
