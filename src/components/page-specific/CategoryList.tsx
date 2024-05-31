@@ -1,8 +1,6 @@
-"use client";
-
 import { useRetrieveCategoryListQuery } from "@/redux/features/postApiSlice";
+import Link from "next/link";
 import { FaRegCircleDot } from "react-icons/fa6";
-import { NavItem } from "../common/nav/NavItem";
 
 export default function CategoryList() {
   let { data: categories, isLoading } = useRetrieveCategoryListQuery();
@@ -11,14 +9,16 @@ export default function CategoryList() {
   categories = categories?.categories;
 
   return (
-    <div className="flex justify-start">
+    <div className="flex flex-col justify-start">
       {categories.map((category) => (
-        <NavItem
-          to={`/category/${category.slung}`}
+        <Link
+          href={`/category/${category.slung}`}
           key={`cat_${category.id}`}
-          name={category.name}
-          icon={FaRegCircleDot}
-        />
+          className="hover:bg-gray-300/60 flex gap-1.5 items-center text-gray-800 no-underline px-3 py-2 rounded-md transition duration-200 ease-in-out"
+        >
+          <FaRegCircleDot size={16} />
+          <span>{category.name}</span>
+        </Link>
       ))}
     </div>
   );
