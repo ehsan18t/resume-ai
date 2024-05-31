@@ -1,7 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { useRetrieveProfileSummaryQuery } from "@/redux/features/cvApiSlice";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import ApplicationSection from "./ApplicationSection";
 
@@ -46,7 +48,16 @@ export default function SelectedApplication({ application, className }) {
   };
 
   return (
-    <div className={className}>
+    <div className={cn("relative", className)}>
+      {application && (
+        <Link
+          target="_blank"
+          href={`/profile/${application?.user.username}`}
+          className="absolute top-0 right-0 shadow hover:bg-slate-100 text-xs font-semibold p-2 border-[1px] rounded"
+        >
+          Visit Profile
+        </Link>
+      )}
       <h1 className="text-2xl py-2 font-bold">Profile</h1>
       {isLoading ? (
         <div className="grid grid-cols-3 gap-3 h-[410px]">
