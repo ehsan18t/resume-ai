@@ -28,7 +28,7 @@ export default function ApplicationList({
           key={application.id}
           variant="outline"
           className={`${
-            selectedApplication === application.id && "bg-sky-300"
+            selectedApplication === application.id && "bg-[#0079FF] text-white"
           } w-full flex justify-between my-2`}
           disabled={selectedApplication === application.id}
         >
@@ -36,7 +36,7 @@ export default function ApplicationList({
             {application.user.first_name} {application.user.last_name} (
             {application.user.username})
           </p>
-          <p className="p-1 bg-gray-100 rounded-md text-xs">
+          <p className="p-1 bg-gray-100 text-gray-700 rounded-md text-xs">
             {application.status}
           </p>
         </Button>
