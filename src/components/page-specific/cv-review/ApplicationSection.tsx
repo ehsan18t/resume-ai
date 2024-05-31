@@ -22,6 +22,29 @@ export default function ApplicationSection({ data, className }) {
     element = <Skills className="h-full" skills={data.section} />;
   } else if (data.key === "projects") {
     element = <Projects className="h-full" projects={data.section} />;
+  } else if (data.key === "languages") {
+    element = (
+      <Card className="mb-8 h-full">
+        <CardHeader>
+          <CardTitle>Languages</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ul className="list-disc list-inside">
+            {data?.section &&
+              data?.section.map((language, index) => (
+                <li key={index} className="text-lg text-gray-700 ">
+                  {language.language}{" "}
+                  {language.proficiency && (
+                    <span className="text-sm text-zinc-500">
+                      ({language.proficiency})
+                    </span>
+                  )}
+                </li>
+              ))}
+          </ul>
+        </CardContent>
+      </Card>
+    );
   } else if (data.key === "certifications") {
     element = (
       <Certifications className="h-full" certifications={data.section} />
