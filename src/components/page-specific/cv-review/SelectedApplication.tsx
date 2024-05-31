@@ -74,7 +74,7 @@ export default function SelectedApplication({ application, className }) {
                   variant="outline"
                   onClick={handleTabChange}
                   value={key}
-                  className="capitalize"
+                  className="capitalize shadow"
                   disabled={selectedTab.key === key}
                 >
                   {key}
