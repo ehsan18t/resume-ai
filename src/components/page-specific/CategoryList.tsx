@@ -10,6 +10,9 @@ export default function CategoryList() {
 
   return (
     <div className="flex flex-col justify-start">
+      <h2 className="text-lg py-3 font-semibold text-gray-800 border-b-2 mb-3">
+        Categories
+      </h2>
       {categories.map((category) => (
         <Link
           href={`/category/${category.slung}`}
