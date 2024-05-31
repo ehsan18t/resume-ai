@@ -17,10 +17,7 @@ const Education = ({ educations, className }) => {
                 {edu.start_date && (
                   <p className="text-sm">
                     ({edu.start_date} -{" "}
-                    {edu.end_date == null || !edu.end_date
-                      ? edu.end_date
-                      : "Present"}
-                    )
+                    {edu.end_date != null ? edu.end_date : "Present"})
                   </p>
                 )}
               </div>
