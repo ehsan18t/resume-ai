@@ -45,7 +45,7 @@ export default function NewPost({ slung = "" }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="w-2/4 bg-slate-600">Create New Post</Button>
+        <Button className="w-2/4">Create New Post</Button>
       </DialogTrigger>
       <DialogContent className="max-w-screen-md">
         <DialogHeader>
