@@ -29,7 +29,7 @@ const authApiSlice = apiSlice.injectEndpoints({
     }),
     updateCvStatus: builder.mutation({
       query: ({ post, user, status }) => ({
-        url: "/post/cv/update-cv/",
+        url: "/cv/update-cv/",
         method: "POST",
         body: { post, user, status },
       }),
