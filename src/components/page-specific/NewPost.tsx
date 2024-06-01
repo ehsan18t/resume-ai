@@ -16,24 +16,20 @@ import { useCreatePostMutation } from "@/redux/features/postApiSlice";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-export default function NewPost({ slung = "" }) {
-  const [form, setForm] = useState({
+export default function NewPost({ slung = "", insideCategory = false }) {
+  const defaultForm = {
     content: "",
-    is_job_circular: false,
+    is_job_circular: true,
     category: slung,
-  });
+  };
+  const [form, setForm] = useState(defaultForm);
   const [open, setOpen] = useState(false);
-
   const [createPost, { isLoading }] = useCreatePostMutation();
 
   const handleSubmit = async () => {
     try {
       await createPost(form).unwrap();
-      setForm({
-        content: "",
-        is_job_circular: false,
-        category: "",
-      });
+      setForm(defaultForm);
       setOpen(false);
       toast.success("Post created successfully.");
       // wait for the toast to show
@@ -60,17 +56,19 @@ export default function NewPost({ slung = "" }) {
           onChange={(e) => setForm({ ...form, content: e.target.value })}
           placeholder="Type your post here."
         />
-        <div className="flex items-center space-x-2">
-          <Switch
-            name="is_job_circular"
-            checked={form.is_job_circular}
-            onCheckedChange={() => {
-              setForm({ ...form, is_job_circular: !form.is_job_circular });
-            }}
-            id="job-post"
-          />
-          <Label htmlFor="job-post">as Job Circular</Label>
-        </div>
+        {!insideCategory && (
+          <div className="flex items-center space-x-2">
+            <Switch
+              name="is_job_circular"
+              checked={form.is_job_circular}
+              onCheckedChange={() => {
+                setForm({ ...form, is_job_circular: !form.is_job_circular });
+              }}
+              id="job-post"
+            />
+            <Label htmlFor="job-post">as Job Circular</Label>
+          </div>
+        )}
         <DialogFooter>
           <Button onClick={handleSubmit} disabled={isLoading}>
             {isLoading ? "Posting..." : "Post"}
