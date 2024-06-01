@@ -16,12 +16,15 @@ export default function NotificationList() {
 
   return (
     <div className="flex items-center justify-center">
-      {/* <p className="text-lg text-gray-500"> */}
       {isLoading ? (
-        "Loading..."
+        <p className="text-lg text-gray-500 text-center">Loading...</p>
       ) : (
         <div className="w-full flex flex-col gap-2">
-          {isSuccess && notifications.length === 0 && "No notifications"}
+          {isSuccess && notifications.length === 0 && (
+            <p className="text-lg text-gray-500 text-center">
+              No Notifications!
+            </p>
+          )}
           {notifications.map((notification) => (
             <NotificationCard
               key={notification.id}
@@ -30,7 +33,6 @@ export default function NotificationList() {
           ))}
         </div>
       )}
-      {/* </p> */}
     </div>
   );
 }

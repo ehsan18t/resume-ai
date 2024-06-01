@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Clear from "./Clear";
 import NotificationList from "./NotificationList";
 
 export const metadata = {
@@ -12,7 +13,9 @@ export default function Page() {
     <div className="w-full h-full flex justify-center items-center">
       <Card className="h-full w-3/5 shadow">
         <CardHeader className="border-b-2 mb-4">
-          <CardTitle>Notifications</CardTitle>
+          <CardTitle className="flex justify-between items-center ">
+            Notifications <Clear />
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <ScrollArea type="none" className="h-[530px]">

@@ -8,10 +8,17 @@ const notificationApiSlice = apiSlice.injectEndpoints({
     retrieveNotifications: builder.query({
       query: () => "/notifications",
     }),
+    clearNotification: builder.mutation({
+      query: () => ({
+        url: "/notifications/clear/",
+        method: "POST",
+      }),
+    }),
   }),
 });
 
 export const {
   useRetrieveNotificationCountQuery,
   useRetrieveNotificationsQuery,
+  useClearNotificationMutation,
 } = notificationApiSlice;
