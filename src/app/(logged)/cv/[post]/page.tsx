@@ -18,7 +18,10 @@ export default function Page({ params }) {
       />
       <div className="w-full col-span-3 border-2 p-4 text-center rounded">
         {application ? (
-          <SelectedApplication application={application} />
+          <SelectedApplication
+            application={application}
+            setApplication={setApplication}
+          />
         ) : (
           <p>Select an application</p>
         )}

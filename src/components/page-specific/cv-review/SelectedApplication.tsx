@@ -2,17 +2,28 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useRetrieveProfileSummaryQuery } from "@/redux/features/cvApiSlice";
+import {
+  useRetrieveProfileSummaryQuery,
+  useUpdateCvStatusMutation,
+} from "@/redux/features/cvApiSlice";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import ApplicationSection from "./ApplicationSection";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function SelectedApplication({ application, className }) {
+export default function SelectedApplication({
+  application,
+  setApplication,
+  className,
+}) {
   const { data, isLoading, isFetching } = useRetrieveProfileSummaryQuery(
     application?.user.id
   );
+
+  const [updateCvStatus, { isLoading: isUpdating }] =
+    useUpdateCvStatusMutation();
 
   const [profile, setProfile] = useState(null);
   const [summary, setSummary] = useState(null);
@@ -47,6 +58,27 @@ export default function SelectedApplication({ application, className }) {
     });
   };
 
+  const handleOnUpdateStatus = async (status) => {
+    try {
+      const res = await updateCvStatus({
+        post: application.post,
+        user: application.user.id,
+        status: status,
+      });
+
+      toast.success("Status updated successfully");
+
+      // update the application status
+      setApplication((prev) => ({ ...prev, status: status }));
+    } catch (error) {
+      if (error.data) {
+        toast.error(error.data.detail);
+      } else {
+        toast.error("Something went wrong");
+      }
+    }
+  };
+
   return (
     <div className={cn("relative", className)}>
       {application && (
@@ -71,6 +103,8 @@ export default function SelectedApplication({ application, className }) {
         <Button
           variant="secondary"
           className="mt-4 bg-emerald-600 text-white hover:bg-emerald-500"
+          onClick={() => handleOnUpdateStatus("Accepted")}
+          disabled={isUpdating || application.status === "Accepted"}
         >
           Accept
         </Button>
@@ -98,6 +132,8 @@ export default function SelectedApplication({ application, className }) {
         <Button
           variant="destructive"
           className="mt-4 bg-red-600 hover:bg-red-500"
+          onClick={() => handleOnUpdateStatus("Rejected")}
+          disabled={isUpdating || application.status === "Rejected"}
         >
           Reject
         </Button>
