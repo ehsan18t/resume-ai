@@ -30,7 +30,7 @@ export default function CategoryList({ selectedCat = null }) {
           className={`${
             selectedCat && selectedCat.id == category.id
               ? "bg-gray-300/60 hover:bg-gray-300/60 my-0.5"
-              : "hover:bg-primary/20"
+              : "hover:bg-primary/10"
           } flex gap-1.5 items-center text-gray-800 no-underline px-3 py-2 rounded-md transition duration-200 ease-in-out`}
         >
           <FaRegCircleDot size={16} />
