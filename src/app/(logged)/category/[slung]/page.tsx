@@ -23,13 +23,14 @@ export default function Feed({ params }) {
           <NewPost slung={params.slung} insideCategory />
         </div>
         <ScrollArea className="mx-auto h-[630px] py-1 p-4 rounded-lg">
-          {posts.map((post) => (
-            <Post key={`post_${post.id}`} user={post.user} post={post} />
-          ))}
+          {posts &&
+            posts.map((post) => (
+              <Post key={`post_${post.id}`} user={post.user} post={post} />
+            ))}
         </ScrollArea>
       </div>
       <div className="col-span-1 p-4 text-center">
-        <CategoryList selectedCat={category.category} />
+        <CategoryList selectedCat={category?.category} />
       </div>
     </div>
   );

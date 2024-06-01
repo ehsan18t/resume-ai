@@ -19,9 +19,15 @@ export default function Feed() {
           <NewPost />
         </div>
         <ScrollArea type="none" className="mx-auto h-[690px] rounded-lg">
-          {posts.map((post) => (
-            <Post key={`post_${post.id}`} user={post.user} post={post} isFeed />
-          ))}
+          {posts &&
+            posts.map((post) => (
+              <Post
+                key={`post_${post.id}`}
+                user={post.user}
+                post={post}
+                isFeed
+              />
+            ))}
         </ScrollArea>
       </div>
       <div className="col-span-1 p-4 text-center">
