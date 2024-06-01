@@ -21,7 +21,7 @@ const NewLineContent = ({ content }) => {
   const [printContent, setPrintContent] = useState(content);
 
   useEffect(() => {
-    setPrintContent(seeMore ? content : content.slice(0, 200));
+    setPrintContent(seeMore ? content : content.slice(0, 400));
   }, [content, seeMore]);
 
   return (
@@ -32,7 +32,7 @@ const NewLineContent = ({ content }) => {
           <br />
         </span>
       ))}
-      {content.length > 200 && (
+      {content.length > 400 && (
         <Button
           className="text-blue-600 mt-3"
           variant="outline"
