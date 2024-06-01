@@ -13,11 +13,10 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { useCreatePostMutation } from "@/redux/features/postApiSlice";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function NewPost({ slung = "" }) {
-  const router = useRouter();
   const [form, setForm] = useState({
     content: "",
     is_job_circular: false,
@@ -36,7 +35,11 @@ export default function NewPost({ slung = "" }) {
         category: "",
       });
       setOpen(false);
-      router.refresh();
+      toast.success("Post created successfully.");
+      // wait for the toast to show
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     } catch (error) {
       console.error("Failed to create post:", error);
     }
