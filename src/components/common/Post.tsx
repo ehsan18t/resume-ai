@@ -1,3 +1,6 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -6,23 +9,39 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
 import ApplyNow from "./ApplyNow";
 
 const NewLineContent = ({ content }) => {
+  const [seeMore, setSeeMore] = useState(false);
+  const [printContent, setPrintContent] = useState(content);
+
+  useEffect(() => {
+    setPrintContent(seeMore ? content : content.slice(0, 200));
+  }, [content, seeMore]);
+
   return (
     <p>
-      {content.split("\n").map((line, index) => (
+      {printContent.split("\n").map((line, index) => (
         <span key={index}>
           {line}
           <br />
         </span>
       ))}
+      {content.length > 200 && (
+        <Button
+          className="text-blue-600 mt-3"
+          variant="outline"
+          size="sm"
+          onClick={() => setSeeMore(!seeMore)}
+        >
+          {seeMore ? "See Less" : "See More"}
+        </Button>
+      )}
     </p>
   );
 };
