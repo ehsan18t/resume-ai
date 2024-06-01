@@ -2,6 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useRetrieveNotificationCountQuery } from "@/redux/features/notificationApiSlice";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IoIosNotificationsOutline } from "react-icons/io";
 
@@ -29,15 +30,17 @@ export default function Hamburger({ user, buttonRef, onClick }) {
     <div className="flex gap-5 items-center">
       {user && (
         <div className="relative">
-          <IoIosNotificationsOutline
-            className="ring-1 p-1 rounded-full"
-            size={35}
-          />
-          {count > 0 && (
-            <span className="text-red-500 font-semibold ring-1 ring-red-400 text-sm absolute -top-1 -right-1 bg-white px-1 rounded-full">
-              {count}
-            </span>
-          )}
+          <Link href="/notifications">
+            <IoIosNotificationsOutline
+              className="ring-1 p-1 rounded-full hover:bg-gray-100 cursor-pointer"
+              size={35}
+            />
+            {count > 0 && (
+              <span className="text-red-500 font-semibold ring-1 ring-red-400 text-sm absolute -top-1 -right-1 bg-white px-1 rounded-full">
+                {count}
+              </span>
+            )}
+          </Link>
         </div>
       )}
       <button
