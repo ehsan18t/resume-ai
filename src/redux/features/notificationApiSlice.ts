@@ -11,4 +11,7 @@ const notificationApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const {} = notificationApiSlice;
+export const {
+  useRetrieveNotificationCountQuery,
+  useRetrieveNotificationsQuery,
+} = notificationApiSlice;
