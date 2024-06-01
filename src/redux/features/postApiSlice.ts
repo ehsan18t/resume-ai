@@ -1,6 +1,6 @@
 import { apiSlice } from "../services/apiSlice";
 
-const authApiSlice = apiSlice.injectEndpoints({
+const postApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     retrieveUserPosts: builder.query({
       query: () => "/post/user-posts/",
@@ -38,4 +38,4 @@ export const {
   useRetrieveFeedQuery,
   useCreateCategoryMutation,
   useCreatePostMutation,
-} = authApiSlice;
+} = postApiSlice;

@@ -1,6 +1,6 @@
 import { apiSlice } from "../services/apiSlice";
 
-const authApiSlice = apiSlice.injectEndpoints({
+const cvApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     retrieveAppliedCv: builder.query({
       query: (post) => `/cv/list/?post=${post}`,
@@ -43,4 +43,4 @@ export const {
   useApplyJobMutation,
   useBuildProfileMutation,
   useUpdateCvStatusMutation,
-} = authApiSlice;
+} = cvApiSlice;
