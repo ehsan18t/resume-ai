@@ -17,11 +17,12 @@ import { MdOutlineBookmarkAdd } from "react-icons/md";
 import ApplyNow from "./ApplyNow";
 
 const NewLineContent = ({ content }) => {
+  const limit = 400;
   const [seeMore, setSeeMore] = useState(false);
   const [printContent, setPrintContent] = useState(content);
 
   useEffect(() => {
-    setPrintContent(seeMore ? content : content.slice(0, 400));
+    setPrintContent(seeMore ? content : content.slice(0, limit) + "...");
   }, [content, seeMore]);
 
   return (
@@ -32,7 +33,7 @@ const NewLineContent = ({ content }) => {
           <br />
         </span>
       ))}
-      {content.length > 400 && (
+      {content.length > limit && (
         <Button
           className="text-blue-600 mt-3"
           variant="outline"
