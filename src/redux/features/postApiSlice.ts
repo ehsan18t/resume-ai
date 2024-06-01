@@ -8,6 +8,9 @@ const postApiSlice = apiSlice.injectEndpoints({
     retrieveCategoryPosts: builder.query({
       query: (slung) => `/post/category-posts/?slung=${slung}`,
     }),
+    retrieveCategory: builder.query({
+      query: (slung) => `/post/category/?slung=${slung}`,
+    }),
     retrieveCategoryList: builder.query({
       query: () => "/post/category-list/",
     }),
@@ -34,6 +37,7 @@ const postApiSlice = apiSlice.injectEndpoints({
 export const {
   useRetrieveUserPostsQuery,
   useRetrieveCategoryPostsQuery,
+  useRetrieveCategoryQuery,
   useRetrieveCategoryListQuery,
   useRetrieveFeedQuery,
   useCreateCategoryMutation,
