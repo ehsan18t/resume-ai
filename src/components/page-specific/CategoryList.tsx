@@ -28,10 +28,10 @@ export default function CategoryList({ selectedCat = null }) {
           href={`/category/${category.slung}`}
           key={`cat_${category.id}`}
           className={`${
-            selectedCat &&
-            selectedCat.id == category.id &&
-            "bg-gray-300/60 my-0.5"
-          } hover:bg-gray-300/60 flex gap-1.5 items-center text-gray-800 no-underline px-3 py-2 rounded-md transition duration-200 ease-in-out`}
+            selectedCat && selectedCat.id == category.id
+              ? "bg-gray-300/60 hover:bg-gray-300/60 my-0.5"
+              : "hover:bg-primary/20"
+          } flex gap-1.5 items-center text-gray-800 no-underline px-3 py-2 rounded-md transition duration-200 ease-in-out`}
         >
           <FaRegCircleDot size={16} />
           <span>{category.name}</span>
