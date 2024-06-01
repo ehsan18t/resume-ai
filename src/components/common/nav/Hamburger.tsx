@@ -33,13 +33,11 @@ export default function Hamburger({ user, buttonRef, onClick }) {
             className="ring-1 p-1 rounded-full"
             size={35}
           />
-          <span
-            className={`${
-              count > 0 ? "text-red-500" : "text-gray-500"
-            } font-semibold ring-1 ring-red-400 text-sm absolute -top-1 -right-1 bg-white px-1 rounded-full`}
-          >
-            {count}
-          </span>
+          {count > 0 && (
+            <span className="text-red-500 font-semibold ring-1 ring-red-400 text-sm absolute -top-1 -right-1 bg-white px-1 rounded-full">
+              {count}
+            </span>
+          )}
         </div>
       )}
       <button
