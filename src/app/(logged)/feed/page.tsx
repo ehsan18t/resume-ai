@@ -20,7 +20,7 @@ export default function Feed() {
         </div>
         <ScrollArea type="none" className="mx-auto h-[690px] rounded-lg">
           {posts.map((post) => (
-            <Post key={`post_${post.id}`} user={post.user} post={post} />
+            <Post key={`post_${post.id}`} user={post.user} post={post} isFeed />
           ))}
         </ScrollArea>
       </div>

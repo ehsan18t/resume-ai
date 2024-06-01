@@ -47,12 +47,26 @@ const NewLineContent = ({ content }) => {
   );
 };
 
-function Post({ user, post }) {
+function Post({ user, post, isFeed = false }) {
   return (
     <Card className="my-4">
       <CardHeader>
-        <CardTitle className="text-lg">
-          <Link href={`/profile/${user?.username}`}>
+        <CardTitle className="flex flex-col">
+          {post.category && isFeed && (
+            <Link
+              className="text-lg hover:text-primary"
+              href={`/profile/${user?.username}`}
+            >
+              {post.category.name}
+            </Link>
+          )}
+
+          <Link
+            className={`${
+              post.category && isFeed ? "text-sm text-gray-600" : "text-lg"
+            } hover:text-primary`}
+            href={`/profile/${user?.username}`}
+          >
             {user.first_name} {user.first_name}
           </Link>
         </CardTitle>
