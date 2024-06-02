@@ -29,7 +29,7 @@ const Experiences = ({
       <CardHeader>
         <CardTitle className="flex justify-between">
           Experiences
-          {editable && <Icon onClick={onAdd} icon={MdAdd} />}
+          {editable && <Icon icon={MdAdd} />}
         </CardTitle>
       </CardHeader>
       <CardContent>
