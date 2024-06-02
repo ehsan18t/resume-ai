@@ -49,7 +49,7 @@ const NewLineContent = ({ content }) => {
 
 function Post({ user, post, isFeed = false }) {
   return (
-    <Card className="my-4">
+    <Card className="my-4 w-full">
       <CardHeader>
         <CardTitle className="flex flex-col">
           {post.category && isFeed && (

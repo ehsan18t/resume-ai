@@ -15,6 +15,9 @@ const cvApiSlice = apiSlice.injectEndpoints({
         body: { post, cv },
       }),
     }),
+    retrieveAppliedJobs: builder.query({
+      query: () => "/cv/jobs/",
+    }),
     buildProfile: builder.mutation({
       query: ({ pdf_file }) => {
         const formData = new FormData();
@@ -39,6 +42,7 @@ const cvApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useRetrieveAppliedCvQuery,
+  useRetrieveAppliedJobsQuery,
   useRetrieveProfileSummaryQuery,
   useApplyJobMutation,
   useBuildProfileMutation,
