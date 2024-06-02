@@ -64,6 +64,7 @@ export default function SelectedApplication({
         post: application.post.id,
         user: application.user.id,
         status: status,
+        rejected_from: selectedTab?.key,
       });
 
       toast.success("Status updated successfully");

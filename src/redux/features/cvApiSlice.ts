@@ -31,10 +31,10 @@ const cvApiSlice = apiSlice.injectEndpoints({
       },
     }),
     updateCvStatus: builder.mutation({
-      query: ({ post, user, status }) => ({
+      query: ({ post, user, status, rejected_from }) => ({
         url: "/cv/update-cv/",
         method: "POST",
-        body: { post, user, status },
+        body: { post, user, status, rejected_from },
       }),
     }),
   }),
