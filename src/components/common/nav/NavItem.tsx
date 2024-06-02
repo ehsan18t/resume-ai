@@ -10,7 +10,7 @@ interface Props {
 
 const NavItem = ({ to, name, icon: Icon, onClick, ...rest }: Props) => {
   const className =
-    "hover:bg-gray-300/60 flex items-center text-gray-800 no-underline px-3 py-2 rounded-md transition duration-200 ease-in-out";
+    "hover:bg-primary/10 flex items-center text-gray-800 no-underline px-3 py-2 rounded-md transition duration-200 ease-in-out";
 
   if (!to) {
     return (
