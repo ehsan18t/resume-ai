@@ -10,8 +10,8 @@ export default function CategoryList({ selectedCat = null }) {
   categories = categories?.categories;
 
   const handleSelectCategory = (e, category) => {
-    console.log(selectedCat, category);
-    if (selectedCat.id == category.id) {
+    // console.log(selectedCat, category);
+    if (selectedCat?.id == category?.id) {
       e.preventDefault();
       return;
     }
