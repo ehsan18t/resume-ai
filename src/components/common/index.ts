@@ -1,4 +1,5 @@
 export { default as Footer } from "./Footer";
+export { default as Icon } from "./Icon";
 export { default as List } from "./List";
 export { default as SocialButton } from "./SocialButton";
 export { default as SocialButtons } from "./SocialButtons";
