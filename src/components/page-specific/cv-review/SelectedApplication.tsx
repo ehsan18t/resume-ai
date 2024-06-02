@@ -61,7 +61,7 @@ export default function SelectedApplication({
   const handleOnUpdateStatus = async (status) => {
     try {
       const res = await updateCvStatus({
-        post: application.post,
+        post: application.post.id,
         user: application.user.id,
         status: status,
       });
