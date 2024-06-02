@@ -2,13 +2,45 @@
 
 import Post from "@/components/common/Post";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useRetrieveAppliedJobsQuery } from "@/redux/features/cvApiSlice";
+import {
+  useRetrieveAppliedJobsFeedbackQuery,
+  useRetrieveAppliedJobsQuery,
+} from "@/redux/features/cvApiSlice";
+
+import { useEffect, useState } from "react";
 
 export default function PostSquarePan() {
   const { data, error, isLoading } = useRetrieveAppliedJobsQuery();
+  const {
+    data: feedbacks,
+    error: feedbackError,
+    isLoading: feedbackLoading,
+  } = useRetrieveAppliedJobsFeedbackQuery();
 
-  if (isLoading) return <Card className="w-full h-full">Loading...</Card>;
-  const posts = data?.posts;
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    if (data && feedbacks) {
+      const newPosts = data.posts?.map((post, index) => {
+        const feedback = feedbacks.feedback.find(
+          (fb) => fb.cv.post.id === post.id
+        );
+        return {
+          ...post,
+          feedback: {
+            id: feedback?.id,
+            initial: feedback?.initial,
+            final: feedback?.final,
+            status: feedback?.cv.status,
+          },
+        };
+      });
+      setPosts(newPosts);
+    }
+  }, [data, feedbacks]);
+
+  if (isLoading && feedbackLoading)
+    return <Card className="w-full h-full">Loading...</Card>;
 
   return (
     <Card className="w-full border-2">
