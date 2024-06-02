@@ -1,9 +1,11 @@
 "use client";
+import { Icon } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import { useRetrieveUserQuery } from "@/redux/features/authApiSlice";
 import { useApplyJobMutation } from "@/redux/features/cvApiSlice";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
+
 export default function ApplyNow({ user, post }) {
   const [applyJob, { isLoading, isSuccess }] = useApplyJobMutation();
   const { data: currentUser } = useRetrieveUserQuery();
@@ -32,16 +34,8 @@ export default function ApplyNow({ user, post }) {
 
       {user.id === currentUser?.id && (
         <div className="flex gap-3">
-          <Button
-            className="bg-destructive hover:bg-destructive/80 text-destructive-foreground  hover:text-destructive-foreground"
-            variant="outline"
-            size="icon"
-          >
-            <MdDeleteOutline size={25} />
-          </Button>
-          <Button variant="outline" size="icon">
-            <CiEdit size={25} />
-          </Button>
+          <Icon icon={MdDeleteOutline} className="text-destructive" />
+          <Icon icon={CiEdit} />
 
           <Button
             variant="ghost"
