@@ -1,7 +1,7 @@
 import PostSquarePan from "./PostSquarePan";
 
 export const metadata = {
-  title: "Applied",
+  title: "Applied Jobs",
   description: "Applied jobs",
 };
 
