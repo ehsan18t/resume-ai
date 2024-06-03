@@ -78,9 +78,10 @@ const EditPage = () => {
             phoneNumbers={phone_numbers}
             socialMedia={social_media}
             website={website}
+            editable
           />
           {languages && languages.length > 0 && (
-            <Languages languages={languages} className="mt-8" />
+            <Languages languages={languages} className="mt-8" editable />
           )}
 
           {interests && interests.length > 0 && (
@@ -113,7 +114,7 @@ const EditPage = () => {
           )}
 
           {educations && educations.length > 0 && (
-            <Education educations={educations} />
+            <Education educations={educations} editable />
           )}
 
           {skills && skills.length > 0 && <Skills skills={skills} />}
