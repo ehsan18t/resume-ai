@@ -8,7 +8,14 @@ import { useAppSelector } from "@/redux/hooks";
 import Link from "next/link";
 import BuildProfileFromCV from "./BuildProfileFromCV";
 
-const Header = ({ user, title = null, bio, className, onProfileUpdate }) => {
+const Header = ({
+  user,
+  title = null,
+  bio,
+  className,
+  onProfileUpdate,
+  isEditPage = true,
+}) => {
   const authUser = useAppSelector((state) => state.auth.user);
 
   return (
@@ -27,12 +34,14 @@ const Header = ({ user, title = null, bio, className, onProfileUpdate }) => {
           </h1>
           {authUser && authUser.id === user.id && (
             <div>
-              <Link
-                className="border-[1px] hover:bg-primary/10 text-gray-800 no-underline px-3 py-2 rounded-md transition duration-200 ease-in-out"
-                href="/profile/edit"
-              >
-                Edit Profile
-              </Link>
+              {isEditPage && (
+                <Link
+                  className="border-[1px] hover:bg-primary/10 text-gray-800 no-underline px-3 py-2 rounded-md transition duration-200 ease-in-out"
+                  href="/profile/edit"
+                >
+                  Edit Profile
+                </Link>
+              )}
               <BuildProfileFromCV onProfileUpdate={onProfileUpdate} />
             </div>
           )}
