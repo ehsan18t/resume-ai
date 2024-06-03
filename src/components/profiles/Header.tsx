@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAppSelector } from "@/redux/hooks";
+import Link from "next/link";
 import BuildProfileFromCV from "./BuildProfileFromCV";
 
 const Header = ({ user, title = null, bio, className, onProfileUpdate }) => {
@@ -25,7 +26,15 @@ const Header = ({ user, title = null, bio, className, onProfileUpdate }) => {
             {user?.first_name + " " + user?.last_name}
           </h1>
           {authUser && authUser.id === user.id && (
-            <BuildProfileFromCV onProfileUpdate={onProfileUpdate} />
+            <div>
+              <Link
+                className="border-[1px] hover:bg-primary/10 text-gray-800 no-underline px-3 py-2 rounded-md transition duration-200 ease-in-out"
+                href="/profile/edit"
+              >
+                Edit Profile
+              </Link>
+              <BuildProfileFromCV onProfileUpdate={onProfileUpdate} />
+            </div>
           )}
         </span>
         {title && title != "null" && (
