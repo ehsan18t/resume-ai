@@ -49,7 +49,7 @@ export default function PostSquarePan() {
       </CardHeader>
       <CardContent className="w-full grid px-4 grid-cols-[repeat(auto-fill,minmax(500px,1fr))] justify-items-center gap-x-4">
         {posts?.map((post) => (
-          <Post key={post.id} user={post.user} post={post} isFeed />
+          <Post key={post.id} user={post.user} post={post} isFeed isJobView />
         ))}
       </CardContent>
     </Card>
