@@ -1,6 +1,7 @@
 // main page
 "use client";
 
+import { Icon } from "@/components/common";
 import {
   Achievements,
   Certifications,
@@ -84,11 +85,17 @@ const EditPage = () => {
 
           {interests && interests.length > 0 && (
             <>
-              <h2 className="text-2xl font-bold mb-2">Interests</h2>
+              <h2 className="text-2xl font-bold mb-2 flex justify-between items-center">
+                Interests <Icon type="add" />{" "}
+              </h2>
               <ul className="list-disc list-inside mb-3">
                 {interests?.map((interest, index) => (
-                  <li key={index} className="mb-2">
-                    {interest.name}
+                  <li key={index} className="flex justify-between">
+                    {interest.name}{" "}
+                    <span className="flex gap-1">
+                      <Icon type="edit" />
+                      <Icon type="delete" />
+                    </span>
                   </li>
                 ))}
               </ul>

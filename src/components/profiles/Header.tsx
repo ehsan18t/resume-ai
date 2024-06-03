@@ -1,11 +1,12 @@
 // Header.tsx
 "use client";
 
-import { cn } from "@/lib/utils";
-
+import { Icon } from "@/components/common";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 import { useAppSelector } from "@/redux/hooks";
 import Link from "next/link";
+import { CiEdit } from "react-icons/ci";
 import BuildProfileFromCV from "./BuildProfileFromCV";
 
 const Header = ({
@@ -30,7 +31,7 @@ const Header = ({
       <div className="flex flex-col w-full">
         <span className="flex justify-between">
           <h1 className="text-4xl font-bold">
-            {user?.first_name + " " + user?.last_name}
+            {user?.first_name + " " + user?.last_name} <Icon type="edit" />
           </h1>
           {authUser && authUser.id === user.id && (
             <div>
@@ -47,11 +48,16 @@ const Header = ({
           )}
         </span>
         {title && title != "null" && (
-          <h2 className="text-xl pb-1 text-stone-600">{title}</h2>
+          <h2 className="text-xl pb-1 text-stone-600 flex gap-2 items-center">
+            {title} <CiEdit size={20} />
+          </h2>
         )}
         {bio && (
           <>
-            <p className="text-gray-600 text-justify">{bio}</p>
+            <p className="text-gray-600 text-justify flex gap-2 items-center">
+              {bio}
+              <CiEdit size={20} />
+            </p>
           </>
         )}
       </div>

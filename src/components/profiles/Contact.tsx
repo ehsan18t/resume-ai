@@ -1,3 +1,4 @@
+import { Icon } from "@/components/common";
 import { cn } from "@/lib/utils";
 import { BiLogoGmail } from "react-icons/bi";
 import {
@@ -86,7 +87,10 @@ const Contact = ({
 
   return (
     <div className={cn("mb-8 flex flex-col gap-1", className)}>
-      <h2 className="text-2xl font-bold">Contact</h2>
+      <h2 className="text-2xl font-bold flex justify-between items-center">
+        Contact
+        <Icon type="edit" />
+      </h2>
       {location && <Social Icon={CiLocationOn}>{location}</Social>}
       {website && website != "null" && (
         <Social Icon={CiGlobe}>

@@ -1,19 +1,24 @@
+import { Icon } from "@/components/common";
 import { cn } from "@/lib/utils";
 
 const Languages = ({ languages, className }) => {
   return (
     <div className={cn("mb-8", className)}>
-      <h2 className="text-2xl font-bold">Languages</h2>
+      <h2 className="text-2xl font-bold flex justify-between items-center">
+        Languages <Icon type="add" />
+      </h2>
       <ul className="list-disc list-inside">
         {languages &&
           languages.map((language, index) => (
-            <li key={index} className="text-lg text-gray-700 ">
+            <li
+              key={index}
+              className="text-lg text-gray-700 flex justify-between items-center"
+            >
               {language.language}{" "}
-              {language.proficiency && (
-                <span className="text-sm text-zinc-500">
-                  ({language.proficiency})
-                </span>
-              )}
+              <span className="flex gap-1">
+                <Icon type="edit" />
+                <Icon type="delete" />
+              </span>
             </li>
           ))}
       </ul>
