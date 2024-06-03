@@ -16,6 +16,7 @@ const Header = ({
   className,
   onProfileUpdate,
   isEditPage = true,
+  editable = false,
 }) => {
   const authUser = useAppSelector((state) => state.auth.user);
 
@@ -31,7 +32,8 @@ const Header = ({
       <div className="flex flex-col w-full">
         <span className="flex justify-between">
           <h1 className="text-4xl font-bold">
-            {user?.first_name + " " + user?.last_name} <Icon type="edit" />
+            {user?.first_name + " " + user?.last_name}
+            {editable && <Icon type="edit" />}
           </h1>
           {authUser && authUser.id === user.id && (
             <div>
@@ -49,14 +51,14 @@ const Header = ({
         </span>
         {title && title != "null" && (
           <h2 className="text-xl pb-1 text-stone-600 flex gap-2 items-center">
-            {title} <CiEdit size={20} />
+            {title} {editable && <CiEdit size={20} />}
           </h2>
         )}
         {bio && (
           <>
             <p className="text-gray-600 text-justify flex gap-2 items-center">
               {bio}
-              <CiEdit size={20} />
+              {editable && <CiEdit size={20} />}
             </p>
           </>
         )}

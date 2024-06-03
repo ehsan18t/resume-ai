@@ -82,6 +82,7 @@ const Contact = ({
   socialMedia,
   website,
   className,
+  editable = false,
 }) => {
   const socials = generateSocialIcon(socialMedia);
 
@@ -89,7 +90,7 @@ const Contact = ({
     <div className={cn("mb-8 flex flex-col gap-1", className)}>
       <h2 className="text-2xl font-bold flex justify-between items-center">
         Contact
-        <Icon type="edit" />
+        {editable && <Icon type="edit" />}
       </h2>
       {location && <Social Icon={CiLocationOn}>{location}</Social>}
       {website && website != "null" && (
